@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Poppins:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-gradient-to-br from-background-dark to-background text-text-primary min-h-screen font-sans;
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-lighter;
+  }
+  
+  .btn-primary {
+    @apply btn bg-gradient-to-r from-primary to-primary-light hover:from-primary-light hover:to-primary text-white shadow-md hover:shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply btn bg-transparent border border-primary-light text-text-primary hover:bg-primary-light/10;
+  }
+  
+  .btn-danger {
+    @apply btn bg-error/90 hover:bg-error text-white;
+  }
+  
+  .card {
+    @apply bg-primary/50 backdrop-blur-sm rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300 border border-primary-light/20;
+  }
+  
+  .input {
+    @apply bg-background/80 border border-primary-light/30 rounded-md px-3 py-2 text-text-primary focus:outline-none focus:ring-2 focus:ring-primary-lighter/50 transition-all duration-200;
+  }
+  
+  .select {
+    @apply input appearance-none bg-no-repeat bg-[right_0.5rem_center] pr-8;
+  }
+}
