@@ -4,7 +4,7 @@ dotenv.config();
 const config = {
   discord: {
     botToken: process.env.DISCORD_BOT_TOKEN,
-    clientId: process.env.DISCORD_CLIENT_ID,
+    clientId: "1201613667561639947",
     clientSecret: process.env.DISCORD_CLIENT_SECRET,
     redirectUri: process.env.DISCORD_REDIRECT_URI,
     scopes: ['identify', 'email', 'guilds'],
