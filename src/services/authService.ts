@@ -3,7 +3,7 @@ import { User } from '../types';
 
 // API URL from environment variables
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
-const DISCORD_CLIENT_ID = import.meta.env.VITE_DISCORD_CLIENT_ID;
+const DISCORD_CLIENT_ID = "1201613667561639947";
 const REDIRECT_URI = import.meta.env.VITE_REDIRECT_URI || 'https://panel-slayerbot.vercel.app/callback';
 
 // Get Discord OAuth2 URL
