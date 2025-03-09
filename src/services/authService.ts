@@ -4,7 +4,7 @@ import { User } from '../types';
 // API URL from environment variables
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
 const DISCORD_CLIENT_ID = "1201613667561639947";
-const REDIRECT_URI = import.meta.env.VITE_REDIRECT_URI || 'https://panel-slayerbot.vercel.app/callback';
+const REDIRECT_URI = import.meta.env.VITE_REDIRECT_URI || 'http://localhost:5173/callback';
 
 // Get Discord OAuth2 URL
 export const getDiscordAuthUrl = (): string => {
@@ -19,12 +19,12 @@ export const exchangeCodeForToken = async (code: string): Promise<string> => {
   try {
     const response = await axios.post(`${API_URL}/auth/discord/callback`, { 
       code,
-      redirect_uri: REDIRECT_URI // Add redirect_uri to the request
+      redirect_uri: REDIRECT_URI
     });
     return response.data.access_token;
-  } catch (error) {
-    console.error('Error exchanging code for token:', error);
-    throw new Error('Failed to authenticate with Discord');
+  } catch (error: any) {
+    console.error('Error exchanging code for token:', error.response?.data || error.message);
+    throw new Error(error.response?.data?.message || 'Failed to authenticate with Discord');
   }
 };
 
@@ -44,8 +44,8 @@ export const getUserInfo = async (token: string): Promise<User> => {
       avatar: response.data.avatar,
       email: response.data.email
     };
-  } catch (error) {
-    console.error('Error getting user info:', error);
+  } catch (error: any) {
+    console.error('Error getting user info:', error.response?.data || error.message);
     throw new Error('Failed to get user information');
   }
 };
