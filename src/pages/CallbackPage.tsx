@@ -75,3 +75,5 @@ const CallbackPage: React.FC = () => {
     </div>
   );
 };
+
+export default CallbackPage;
