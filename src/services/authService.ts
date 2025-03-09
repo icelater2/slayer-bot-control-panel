@@ -17,7 +17,10 @@ export const getDiscordAuthUrl = (): string => {
 // Exchange code for token
 export const exchangeCodeForToken = async (code: string): Promise<string> => {
   try {
-    const response = await axios.post(`${API_URL}/auth/discord/callback`, { code });
+    const response = await axios.post(`${API_URL}/auth/discord/callback`, { 
+      code,
+      redirect_uri: REDIRECT_URI // Add redirect_uri to the request
+    });
     return response.data.access_token;
   } catch (error) {
     console.error('Error exchanging code for token:', error);
